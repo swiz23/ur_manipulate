@@ -1,0 +1,22 @@
+<launch>
+
+  <include file="$(find ur_description)/launch/ur5_upload.launch" />
+
+  <node
+      name="ur5_node"
+      pkg="ur_manipulate"
+      type="ur5_node"
+      output="screen" />
+
+   <node
+       name="robot_state_publisher"
+       pkg="robot_state_publisher"
+       type="robot_state_publisher" />
+
+    <node
+        name="rviz"
+        pkg="rviz"
+        type="rviz"
+        args="-d $(find ur_manipulate)/rviz/ur5_config.rviz" />
+
+ </launch>
